@@ -9,7 +9,7 @@ namespace Job.Entities
     internal class Employee
     {
         /// Atributos
-        public String Name{ get; set; }
+        public string Name{ get; set; }
         public int Hours { get; set; }
         public double ValuePerHour { get; set; }
 
