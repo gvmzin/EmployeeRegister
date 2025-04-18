@@ -8,9 +8,12 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
+            /// Criação de um array de funcionários
             Console.Write("Enter the number of employees: ");
             int n = int.Parse(Console.ReadLine());
-            Employee[] employees = new Employee[n];
+            List<Employee> employees = new List<Employee>(n);
+
+            /// Leitura dos dados dos funcionários
 
             for (int i = 0; i < n; i++)
             {
@@ -22,19 +25,20 @@ namespace MyApp
                 Console.Write("Hours: ");
                 int hours = int.Parse(Console.ReadLine());
                 Console.Write("Value per hour: ");
-                double valuePerHour = double.Parse(Console.ReadLine(), System.Globalization.CultureInfo.InvariantCulture);
+                double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 if (ch == 'y')
                 {
                     Console.Write("Additional charge: ");
-                    double additionalCharge = double.Parse(Console.ReadLine(), System.Globalization.CultureInfo.InvariantCulture);
-                    employees[i] = new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
+                    double additionalCharge = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    employees.Add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
                 }
                 else
                 {
-                    employees[i] = new Employee(name, hours, valuePerHour);
+                    employees.Add(new Employee(name, hours, valuePerHour));
                 }
-
             }
+
+            /// Exibe os dados dos funcionários
             Console.WriteLine("Payments: ");
             for (int i = 0; i < n; i++)
             {
